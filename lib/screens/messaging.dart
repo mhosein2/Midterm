@@ -54,7 +54,10 @@ class _NewMessageState extends State<NewMessage> {
           StreamBuilder(
             stream: FirebaseFirestore.instance
                 .collection('msgs')
-                .where('recip', isEqualTo: widget.username)
+                .where(
+                  'recip',
+                  isEqualTo: widget.username,
+                )
                 .snapshots(),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
